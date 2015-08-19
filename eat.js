@@ -9,6 +9,6 @@ app.get('/whatToEat',function(req,res){
 	});
 });
 
-app.listen(4500,function(){
+app.listen(3000,function(){
 	console.log("server run");
 });
