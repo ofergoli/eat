@@ -1,8 +1,14 @@
-FROM ubuntu:12.04
+FROM ubuntu
 
-RUN sudo apt-get install --yes nodejs
-COPY . /src
-RUN cd /src; npm install
+RUN apt-get -y update
+RUN apt-get install -y nodejs
+RUN apt-get -y install npm
+RUN ln -s /usr/bin/nodejs /usr/bin/node;
+
+ADD . /src
+WORKDIR /src
+
+RUN cd /src && npm install
 EXPOSE  3000
 
 CMD ["node", "/src/eat.js"]
